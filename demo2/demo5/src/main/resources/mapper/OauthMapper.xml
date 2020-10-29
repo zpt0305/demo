@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 指定工作空间，要与接口名相同，源代码没有去看，猜测应该是通过"这里的namespace.下边方法的id"来定位方法的 -->
+<mapper namespace="com.example.demo.dao.OauthMapper">
+    
+    <insert id="insert_oauth" parameterType="com.example.demo.entity.Oauth">
+        INSERT INTO `demotest`.`oauth`(`oauth_id`, `oauth_name`, `oauth_disc`, `create_user_id`, `create_time`, `last_update_user_id`, `last_update_time`, `is_delete`)
+        VALUES (#{oauth_id},#{oauth_name},#{oauth_disc},#{create_user_id},#{create_time},#{last_update_user_id},#{last_update_time},#{is_delete})
+    </insert>
+
+    <delete id="deleteById_oauth" parameterType="Long">
+        DELETE FROM users WHERE `id` = #{oauth_id}
+    </delete>
+
+    <update id="update_oauth" parameterType="com.example.demo.entity.Oauth">
+        UPDATE `demotest`.`oauth` SET `oauth_name` = #{oauth_name}, `oauth_disc` = #{oauth_disc}, `create_user_id` = #{create_user_id}, `create_time` = #{create_time}, `last_update_user_id` = #{last_update_user_id}, `last_update_time` = #{last_update_time}, `is_delete` = #{is_delete} WHERE `oauth_id` = #{oauth_id}
+    </update>
+
+    <!--<select id="" resultType="com.example.demo.entity.User">
+        select *from user 
+        <where>
+            <if test="oauth_id != null and id != ''">
+                and oauth_id = #{oauth_id}
+            </if>
+            <if test="oauth_name != null and id != ''">
+                and oauth_name = #{oauth_name}
+            </if>
+            <if test=""
+        </where>
+    </select>-->
+
+
+
+
+
+
+</mapper>
